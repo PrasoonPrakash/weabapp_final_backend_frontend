@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diagnosis Prediction Result</title>
+    <style>
+        body {
+            background-color: hsl(192, 100%, 95%); /* Light pink background color */
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 20px;
+        }
+        .container {
+            width: 50%;
+            margin: 0 auto;
+            background-color: #ffffff; /* White container background */
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+        }
+        h1 {
+            margin-top: 0;
+        }
+        p {
+            font-size: 1.2em;
+            margin-bottom: 20px;
+        }
+        img {
+            display: left;
+            margin: 0 auto 20px; /* Centers the image */
+            width: 100px; /* Adjust width as needed */
+            
+        }
+        a {
+            display: block;
+            margin-top: 20px;
+            color: #333;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+
+        <a href="#" aria-current="page" class="w-inline-block w--current"><img src="{{ url_for('static', filename='images/Asset-3.png') }}"   loading="lazy" width="132" sizes="(max-width: 479px) 50px, (max-width: 991px) 17vw, (max-width: 1919px) 12vw, 131.98818969726562px" alt="" srcset="{{ url_for('static', filename='images/Asset-3-p-500.png') }} 500w, 
+            {{ url_for('static', filename='images/Asset-3-p-800.png') }} 800w, 
+            {{ url_for('static', filename='images/Asset-3-p-1080.png') }} 1080w, 
+            {{ url_for('static', filename='images/Asset-3.png') }} 1880w"  class="image-5-copy"></a>
+
+        <h1 style="font-size: 2rem; /* default font size */">
+            Diagnosis Prediction Result
+          </h1>
+          
+          <p style="font-size: 1rem; /* default font size */">
+            The predicted diagnosis is: {{ result }}
+            <br>
+            <br>
+            अनुमानित निदान है: {{result_hindi}}
+          </p>
+          
+          <style>
+            @media screen and (max-width: 991px) {
+              h1 {
+                font-size: 1.5rem; /* Adjust for medium-sized screens */
+              }
+              p {
+                font-size: 0.9rem; /* Adjust for medium-sized screens */
+              }
+            }
+          
+            @media screen and (max-width: 479px) {
+              h1 {
+                font-size: 1.2rem; /* Adjust for small screens */
+              }
+              p {
+                font-size: 0.8rem; /* Adjust for small screens */
+              }
+            }
+          </style>
+
+        <a href="/one(6)">Make another prediction</a>
+
+        <button onclick="location.href='/one'">
+    <span lang="hi">होम पेज पर जाएं</span>
+  </button>
+  
+  <!-- Button to go to / -->
+  <button onclick="location.href='/'">
+    Go to Home Page
+  </button>
+        
+    </div>
+</body>
+</html>

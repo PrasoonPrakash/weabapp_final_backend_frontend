@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diagnosis Prediction</title>
+    <style>
+        body {
+            background-color: hsl(192, 100%, 95%);
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            width: 50%;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        input, select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        input[type="submit"] {
+            background-color: hsl(187, 100%, 70%);
+            color: hwb(0 1% 99%);
+            border: none;
+            cursor: pointer;
+        }
+        input[type="submit"]:hover {
+            background-color: hsl(187, 100%, 70%);
+            color: hwb(0 1% 99%)
+        }
+        img {
+            display: left-;
+            margin: 0 auto 20px;
+            width: 100px; /* Adjust as needed */
+        }
+    </style>
+    <script>
+        
+    </script>
+</head>
+<body>
+    <div class="container">
+        <title>Image with Buttons</title>
+        <style>
+            .container {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                flex-wrap: wrap;
+            }
+    
+            .image-5-copy {
+                flex-shrink: 0;
+            }
+    
+            .buttons-container {
+                display: flex;
+                gap: 2.5px; /* Space between buttons */
+            }
+    
+            .btn {
+                padding: 2.5px 5px;
+                background-color: hsl(187, 100%, 70%); /* Change to desired color */
+                color: rgb(6, 6, 6);
+                text-decoration: none;
+                border-radius: 5px;
+                transition: background-color 0.3s;
+                text-align: center;
+                flex: 1;
+                width: 25%;
+                font-size: 12px;
+            }
+    
+            .btn:hover {
+                background-color: hsl(187, 100%, 70%); /* Change to desired hover color */
+            }
+             /* Media Queries */
+        @media (max-width: 767px) {
+            .container {
+                flex-direction: row; /* Stack elements vertically on small screens */
+                align-items: stretch;
+            }
+
+            .buttons-container {
+                flex-direction: row; /* Stack buttons vertically on small screens */
+            }
+
+            .btn {
+                width: 25%; /* Make buttons take full width on small screens */
+                padding: 2.5px 3.75px; /* Increase padding for better touch experience */
+            }
+
+            @media (max-width: 479px) {
+            .container {
+                 /* Stack elements vertically on small screens */
+                align-items: stretch;
+            }
+
+            .buttons-container {
+                flex-direction: row; /* Stack buttons vertically on small screens */
+            }
+
+            .btn {
+                width: 25%; /* Make buttons take full width on small screens */
+                padding: 2.5px 3.75px; /* Increase padding for better touch experience */
+            }    
+        }
+    }
+        </style>
+        
+        <a href="#" aria-current="page" class="w-inline-block w--current"><img src="{{ url_for('static', filename='images/Asset-3.png') }}"   loading="lazy" width="132" sizes="(max-width: 479px) 50px, (max-width: 991px) 17vw, (max-width: 1919px) 12vw, 131.98818969726562px" alt="" srcset="{{ url_for('static', filename='images/Asset-3-p-500.png') }} 500w, 
+            {{ url_for('static', filename='images/Asset-3-p-800.png') }} 800w, 
+            {{ url_for('static', filename='images/Asset-3-p-1080.png') }} 1080w, 
+            {{ url_for('static', filename='images/Asset-3.png') }} 1880w"  class="image-5-copy"></a>
+            <div class="buttons-container">
+                <a href="/" class="btn">Go to Home Page</a>
+                <a href="/one" class="btn">होम पेज पर जाएं</a>
+            </div>
+        </div>
+        
+        <h1 style="font-size: 2rem; /* default font size */">
+            Enter the details to get the Diagnosis Prediction
+          </h1>
+          
+          <style>
+            @media screen and (max-width: 991px) {
+              h1 {
+                font-size: 1.05rem; /* Adjust for medium-sized screens */
+              }
+            }
+          
+            @media screen and (max-width: 479px) {
+              h1 {
+                font-size: 0.84rem; /* Adjust for small screens */
+              }
+            }
+          </style>
+
+
+        <form action="/predict" method="post">
+            <div class="form-group">
+                
+                <label for="AGE">
+                    What is your current age?<br>
+                    <span lang="hi">आपकी वर्तमान उम्र क्या है??</span>
+                </label>
+                <input type="number" step="0.5" name="AGE" required><br>
+                
+                
+                <label for="AGE_FIRST CHILD BIRTH">
+                  At what age did you give birth to your first child?<br>
+                  <span lang="hi">आपने अपने पहले बच्चे को जन्म देने पर कितनी उम्र थी?</span>
+                </label>
+                <input type="number" step="0.01" name="AGE_FIRST CHILD BIRTH" required><br>
+
+
+
+                <label for="CONTRACEPTIVE_DURATION_MNTHS">
+                    For how many months have you used contraceptive methods?<br>
+                    <span lang="hi">आपने गर्भनिरोधक विधियों का कितने महीनों तक उपयोग किया?</span>
+                </label>
+                <input type="number" step="0.01" name="CONTRACEPTIVE_DURATION_MNTHS" required><br>
+        
+        
+                
+                <label for="PHYSICAL ACTIVITY_DURATION_MINS">
+                    On average, how many minutes do you engage in physical activity daily?<br>
+                    <span lang="hi">आप प्रतिदिन औसतन कितने मिनट शारीरिक गतिविधि में संलग्न होते हैं?</span>
+                </label>
+                <input type="number" step="0.01" name="PHYSICAL ACTIVITY_DURATION_MINS" required><br>
+
+
+ 
+                <label for="HEIGHT (IN CMS)">
+                    What is your height in centimeters?<br>
+                    <span lang="hi">आपकी ऊंचाई सेंटीमीटर में कितनी है?</span>
+                </label>
+                <input type="number" step="0.5" name="HEIGHT (IN CMS)" required><br>
+                
+
+            
+              <label for="EDUCATION">
+                  What is the highest level of education you have completed?<br>
+                  <span lang="hi">आपकी शिक्षा का सर्वोच्च स्तर क्या है?</span>
+              </label>
+              <select name="EDUCATION" required>
+                  <option value="">Select</option>
+                  <option value="GRADUATE">GRADUATE (स्नातक)</option>
+                  <option value="ILLITERATE">ILLITERATE (अनपढ़)</option>
+                  <option value="INTERMEDIATE">INTERMEDIATE (मध्यवर्ती)</option>
+                  <option value="POST GRADUATE">POST GRADUATE (स्नातकोत्तर)</option>
+                  <option value="PRIMARY">PRIMARY (प्राथमिक)</option>
+                  <option value="SECONDARY">SECONDARY (माध्यमिक)</option>
+                 
+                  <!-- Add all possible alternatives here -->
+              </select><br>
+      
+    
+            <label for="OCCUPATION">
+                What is your Occupation?<br>
+                <span lang="hi">आपका वर्तमान पेशा क्या है?</span>
+            </label>
+            <select name="OCCUPATION" required>
+                <option value="">Select</option>
+                <option value="HOUSEWIFE">Housewife</option>
+                <option value="PROFESSIONAL">Working Professional</option>
+                <option value="SEMI-PROFESSIONAL">Semi-Professional</option>
+                <option value="SEMI-SKILLED">Semi-Skilled</option>
+                <option value="SKILLED">Skilled</option>
+                <option value="STUDENT">Student</option>
+                <option value="UNEMPLOYED">Unemployed</option>
+                <option value="UNSKILLED">Unskilled</option>
+                <!-- Add all possible alternatives here -->
+            </select><br>
+      
+
+      
+            <label for="FAMILY TYPE">
+                What type of family structure do you belong to? (e.g., nuclear, joint-family)<br>
+                <span lang="hi">आप किस प्रकार के पारिवारिक ढांचे से आते हैं? (जैसे, एकल परिवार, संयुक्त परिवार)</span>
+            </label>
+            <select name="FAMILY TYPE" required>
+                <option value="">Select</option>
+                <option value="NUCLEAR">Nuclear</option>
+                <option value="JOINT">Joint-Family</option>
+                <!-- Add all possible alternatives here -->
+            </select><br>
+
+
+        
+            
+            <label for="REG_MENSTRUATION_History">
+                Have you experienced regular menstrual cycles throughout your life?<br>
+                <span lang="hi">क्या आपका मासिक धर्म चक्र जीवन भर नियमित रहा है?</span>
+            </label>
+            <select name="REG_MENSTRUATION_History" required>
+                <option value="">Select</option>
+                <option value="REGULAR">Regular</option>
+                <option value="IRREGULAR">Irregular</option>
+                <!-- Add all possible alternatives here -->
+            </select><br>
+            
+
+        
+          <label for="MENSTRUAL_STATUS">
+              What is your current menstrual status? (e.g., pre-menopausal, menopausal, post-menopausal)<br>
+              <span lang="hi">आपकी वर्तमान मासिक धर्म स्थिति क्या है? (जैसे, रजोनिवृत्तिपूर्व, रजोनिवृत्ति, रजोनिवृत्तिपश्चात)</span>
+          </label>
+          <select name="MENSTRUAL_STATUS" required>
+              <option value="">Select</option>
+              <option value="PERI-MENOPAUSAL">Peri-menopausal</option>
+              <option value="POST-MENOPAUSAL">Post-menopausal</option>
+              <option value="PRE-MENOPAUSAL">Pre-menopausal</option>
+         
+              <!-- Add all possible alternatives here -->
+          </select><br>
+
+ 
+   
+   
+          <label for="HOT FLUSHES">
+              Have you experienced hot flushes?<br>
+              <span lang="hi">क्या आपको कभी गर्मी का अनुभव (हॉट फ्लशेस) हुआ है?</span>
+          </label>
+          <select name="HOT FLUSHES" required>
+              <option value="">Select</option>
+              <option value="NA">Not Applicable</option>
+              <option value="YES">Yes</option>
+              <option value="NO">No</option>
+              <!-- Add all possible alternatives here -->
+          </select><br>
+
+ 
+
+ 
+              <label for="CONCEPTION(NATURALLY CONCEIVE/IVF)">
+                  Have you had any previous experiences with conception, either naturally or through IVF?<br>
+                  <span lang="hi">क्या आपके पास गर्भाधान के लिए पहले कोई अनुभव हैं, चाहे स्वाभाविक रूप से हो या IVF के माध्यम से?</span>
+              </label>
+              <select name="CONCEPTION(NATURALLY CONCEIVE/IVF)" required>
+                  <option value="">Select</option>
+                  <option value="NATURAL">Natural</option>
+                  <option value="IVF">IVF</option>
+                  <option value="NA">Not Applicable</option>
+                  <!-- Add all possible alternatives here -->
+          </select><br>
+
+
+
+
+            <label for="HRT">
+                Have you ever undergone Hormone Replacement Therapy (HRT)?<br>
+                <span lang="hi">क्या आपने कभी हार्मोन रिप्लेसमेंट थेरेपी (HRT) करवायी है?</span>
+            </label>
+            <select name="HRT" required>
+                <option value="">Select</option>
+                <option value="YES">Yes</option>
+                <option value="NO">No</option>
+                <!-- Add all possible alternatives here -->
+        </select><br>
+
+
+
+            
+        <label for="FAMILYHO_CANCER">
+                Do you have a family history for cancer? Has any of your family members ever been diagnosed with cancer in the past.<br>
+                <span lang="hi">क्या आपके परिवार में कैंसर का इतिहास है? क्या आपके किसी परिवार के सदस्य को कभी कैंसर का निदान हुआ है?</span>
+        </label>
+        <select name="FAMILYHO_CANCER" required>
+            <option value="">Select</option>
+            <option value="YES">Yes</option>
+            <option value="NO">No</option>
+                    
+        </select><br>
+
+
+
+        <label for="FAMILYHO_MEMBER_TYPE">
+            Is there a history of Cancer in your family? What degree of immediate relative had a cancer in your family?<br>
+            <span lang="hi">क्या आपके परिवार में कैंसर का कोई इतिहास है? आपके परिवार में किस करीबी रिश्तेदार को कैंसर हुआ था?</span>
+        </label>
+        <select name="FAMILYHO_MEMBER_TYPE" required>
+            <option value="">Select</option>
+            <option value="NA">Not Applicable</option>
+            <option value="FIRST">First</option>
+            <option value="SECOND">Second</option>
+            <option value="THIRD">Third</option>
+        
+            <!-- Add all possible alternatives here -->
+        </select><br>
+
+
+
+
+        <label for="RTI/STI">
+            Have you ever contracted a Reproductive Tract Infection (RTI) or a Sexually Transmitted Infection (STI)?<br>
+            <span lang="hi">क्या आपने कभी प्रजनन पथ संक्रमण (RTI) या यौन संचारित संक्रमण (STI) का सामना किया है?</span>
+        </label>
+        <select name="RTI/STI" required>
+            <option value="">Select</option>
+            <option value="YES">Yes</option>
+            <option value="NO">No</option>
+      
+            <!-- Add all possible alternatives here -->
+        </select><br>
+
+ 
+ 
+ 
+        <label for="FASTING">
+            Do you practice fasting?<br>
+            <span lang="hi">क्या आप उपवासी रहते हैं?</span>
+        </label>
+        <select name="FASTING" required>
+            <option value="">Select</option>
+            <option value="YES">Yes</option>
+            <option value="NO">No</option>
+      
+            <!-- Add all possible alternatives here -->
+        </select><br>
+        
+
+
+
+        <label for="MUSTARD OIL">
+            Do you use mustard oil in your day-to-day routine?<br>
+            <span lang="hi">क्या आप अपने दिन-प्रतिदिन के उपयोग में सरसों का तेल इस्तेमाल करते हैं?</span>
+        </label>
+        <select name="MUSTARD OIL" required>
+            <option value="">Select</option>
+            <option value="YES">Yes</option>
+            <option value="NO">No</option>
+
+            <!-- Add all possible alternatives here -->
+        </select><br>
+  
+  
+
+        <label for="BREAST TRAUMA">
+            Do you have a history of any type of trauma or injury to your breasts? This includes physical injuries, accidents, or any other incidents that may have affected your breast tissue.<br>
+            <span lang="hi">क्या आपके स्तनों में किसी प्रकार के आघात या चोट का इतिहास है? इसमें शारीरिक चोटें, दुर्घटनाएँ, या कोई अन्य घटनाएँ शामिल हैं जो आपके स्तन ऊतक को प्रभावित कर सकती हैं।</span>
+        </label>
+        <select name="BREAST TRAUMA" required>
+            <option value="">Select</option>
+            <option value="YES">Yes</option>
+            <option value="NO">No</option>
+
+            <!-- Add all possible alternatives here -->
+        </select><br>
+  
+  
+
+        <label for="RADIATION_SITE_CHEST">
+            Has your chest area ever been exposed to radiation, including but not limited to X-rays, CT scans, or other imaging techniques?<br>
+            <span lang="hi">क्या आपके छाती के क्षेत्र को कभी किसी प्रकार की विकिरण, जैसे कि X-रे या अन्य इमेजिंग अध्ययन, के संपर्क में लाया गया है?</span>
+        </label>
+        <select name="RADIATION_SITE_CHEST" required>
+            <option value="">Select</option>
+            <option value="YES">Yes</option>
+            <option value="NO">No</option>
+
+            <!-- Add all possible alternatives here -->
+        </select><br>
+  
+  
+
+        <input type="submit" value="Predict"><br>
+        
+        <!-- Button to go to /one -->
+<button onclick="location.href='/one'">
+    <span lang="hi">होम पेज पर जाएं</span>
+  </button>
+  
+  <!-- Button to go to / -->
+  <button onclick="location.href='/'">
+    Go to Home Page
+  </button>
+    </form>
+</body>
+</html>    
